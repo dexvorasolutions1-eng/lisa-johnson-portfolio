@@ -1,7 +1,7 @@
 /* ============================================================
-   LISA JOHNSON — data.js (FINAL v13)
-   Comics | 2D Arts | Emotes | Tattoos
-   (Videos & Mascots removed, Contact removed)
+   LISA JOHNSON — data.js (FINAL v14)
+   Comics (25) | 2D Arts (25) | Emotes (20) | Tattoos (15) | 3D Models (4)
+   (Branding removed, Websites = 2, Contact removed)
    ============================================================ */
 
 const GALLERY_CONFIG = {
@@ -9,7 +9,7 @@ const GALLERY_CONFIG = {
     gridId: "comicsGrid",
     folder: "images/comics/",
     prefix: "comic",
-    count: 45,
+    count: 25,
     label: "Comic",
     isVideo: false
   },
@@ -17,7 +17,7 @@ const GALLERY_CONFIG = {
     gridId: "twoDArtsGrid",
     folder: "images/art2d/",
     prefix: "art",
-    count: 40,
+    count: 25,
     label: "2D Art",
     isVideo: false
   },
@@ -25,7 +25,7 @@ const GALLERY_CONFIG = {
     gridId: "emotesGrid",
     folder: "images/emotes/",
     prefix: "emote",
-    count: 30,
+    count: 20,
     label: "Emote",
     isVideo: false
   },
@@ -35,6 +35,14 @@ const GALLERY_CONFIG = {
     prefix: "tattoo",
     count: 15,
     label: "Tattoo",
+    isVideo: false
+  },
+  models3d: {
+    gridId: "modelsGrid",
+    folder: "images/models3d/",
+    prefix: "model",
+    count: 4,
+    label: "3D Model",
     isVideo: false
   }
 };

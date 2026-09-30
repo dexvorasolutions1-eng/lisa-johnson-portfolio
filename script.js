@@ -1,7 +1,8 @@
 /* ============================================================
-   LISA JOHNSON — script.js (FINAL v13)
-   Comics | 2D Arts | Emotes | Tattoos | Branding | Applications
-   Websites | About — error-proof
+   LISA JOHNSON — script.js (FINAL v14)
+   Comics | 2D Arts | Emotes | Tattoos | 3D Models
+   Applications | Websites | About — error-proof
+   (Branding removed)
    ============================================================ */
 
 /* IMAGE PROBE */
@@ -117,29 +118,7 @@ function buildAllGalleries() {
   Object.values(GALLERY_CONFIG).forEach(config => buildGallery(config));
 }
 
-/* 3. BRANDING CARDS */
-function buildBrandingCards() {
-  document.querySelectorAll("[data-branding-img]").forEach(async (card) => {
-    const name = card.dataset.brandingImg;
-    const src = `images/branding/${name}.webp`;
-
-    const exists = await probeImage(src);
-    if (!exists) return;
-
-    const media = card.querySelector(".branding-card-media");
-    if (!media) return;
-
-    const img = document.createElement("img");
-    img.className = "card-real-img";
-    img.src = src;
-    img.alt = card.dataset.alt || name;
-    img.loading = "lazy";
-    media.appendChild(img);
-    card.classList.add("has-image");
-  });
-}
-
-/* 4. APPLICATION CARDS */
+/* 3. APPLICATION CARDS */
 function buildAppCards() {
   document.querySelectorAll("[data-app-img]").forEach(async (card) => {
     const name = card.dataset.appImg;
@@ -161,7 +140,7 @@ function buildAppCards() {
   });
 }
 
-/* 5. WEBSITE CARDS */
+/* 4. WEBSITE CARDS (sirf 2 — School + Construction) */
 function buildWebsiteCards() {
   document.querySelectorAll("[data-website-img]").forEach(async (card) => {
     const name = card.dataset.websiteImg;
@@ -183,7 +162,7 @@ function buildWebsiteCards() {
   });
 }
 
-/* 6. REVEAL ON SCROLL */
+/* 5. REVEAL ON SCROLL */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -197,7 +176,7 @@ function observeStaticReveals() {
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 }
 
-/* 7. NAVBAR */
+/* 6. NAVBAR */
 const navToggle = document.getElementById("navToggle");
 const navLinksWrap = document.getElementById("navLinks");
 
@@ -234,7 +213,7 @@ function updateActiveNav() {
 
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 
-/* 8. SCROLL TOP + YEAR */
+/* 7. SCROLL TOP + YEAR */
 const scrollTopBtn = document.getElementById("scrollTop");
 
 if (scrollTopBtn) {
@@ -250,11 +229,10 @@ if (scrollTopBtn) {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* 9. INIT — har function try/catch me */
+/* 8. INIT — har function try/catch me */
 buildHeroAndAbout();
 
 try { buildAllGalleries(); } catch (e) { console.error("Galleries error:", e); }
-try { buildBrandingCards(); } catch (e) { console.error("Branding error:", e); }
 try { buildAppCards(); } catch (e) { console.error("Applications error:", e); }
 try { buildWebsiteCards(); } catch (e) { console.error("Websites error:", e); }
 try { observeStaticReveals(); } catch (e) { console.error("Reveal error:", e); }
